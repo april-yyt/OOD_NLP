@@ -1,0 +1,16 @@
+llm_temp_output
+llm_results_test
+checkpoints
+__pycache__
+*/__pycache__
+*/__pycache__/*
+.python-version
+*.log
+*.out
+*.err
+*.err.*
+logs
+.DS_Store
+datasets/
+ood_env
+pb_eval.py

@@ -1,0 +1,17 @@
+argparse
+pandas
+tqdm
+requests
+langchain-ollama
+datasets
+dill
+nltk
+pyarrow
+rouge==1.0.0
+scipy
+scikit-learn
+tensorboardX
+transformers==4.35.2
+yacs
+torch
+# sentencepiece==0.1.96
