@@ -45,3 +45,71 @@ Please kindly cite our paper:
       year={2023}
 }
 ```
+
+
+# Setup and Installation
+
+1. Ensure you have Python 3.9 installed on your system
+2. Run the setup script:
+   ```bash
+   chmod +x setup.sh
+   ./setup.sh
+   ```
+3. Activate the virtual environment:
+   ```bash
+   source .venv/bin/activate
+   ```
+
+# Running OOD Evaluations
+
+The OOD evaluations can be run using `scripts/run_ood.sh`, which supports various configurations:
+
+## Basic Usage
+
+```bash
+./scripts/run_ood.sh
+```
+
+This will run the evaluation with default settings (all tasks, all models).
+
+## Test Mode
+
+To run in test mode with limited samples:
+
+```bash
+./scripts/run_ood.sh --test --test_tasks "SentimentAnalysis"
+```
+
+## Customizing the Evaluation
+
+You can modify the following variables in `scripts/run_ood.sh` to customize your evaluation:
+
+```bash
+# Models to evaluate (in MODELS array)
+MODELS=("llama2" "mixtral")  # Add or remove models as needed
+
+# Settings to evaluate (in SETTINGS array)
+SETTINGS=("zero-shot" "in-context" "ood-in-context")
+
+# Tasks (modify TEST_TASKS for test mode)
+TEST_TASKS="SentimentAnalysis"  # Can be multiple tasks: "SentimentAnalysis ToxicDetection"
+```
+
+Available options:
+- Models: Any model available in Ollama (e.g., "llama2", "mixtral", "codellama", etc.)
+- Settings: "zero-shot", "in-context", "ood-in-context"
+- Tasks: "SentimentAnalysis", "ToxicDetection", "NaturalLanguageInference", "NameEntityRecognition", "QuestionAnswering"
+
+## Requirements
+
+- Python 3.9
+- Ollama installed and running
+- Sufficient disk space for model downloads
+- Internet connection for downloading models
+
+## Notes
+
+- The script will automatically check if Ollama is running and start it if needed
+- Models will be downloaded automatically if not already present
+- Logs are saved in the `logs` directory with timestamps
+- Results are saved in `llm_results` (or `llm_results_test` for test mode)
